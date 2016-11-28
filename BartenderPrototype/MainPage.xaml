@@ -3,23 +3,52 @@
 		xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+		xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures"
 		x:Class="BartenderPrototype.MainPage">
-	
-  <cv:CarouselView ItemsSource="{Binding Bottles}" x:Name="CarouselBottles">
-    <cv:CarouselView.ItemTemplate>
-      <DataTemplate>
-        <Grid>
-          <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding ImagePath}"/>
-          <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
-            <Label TextColor="White" Text="{Binding Name}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
-          </StackLayout>
-        </Grid>
-      </DataTemplate>
-    </cv:CarouselView.ItemTemplate>
-  </cv:CarouselView>
-	
+
+	<RelativeLayout
+		HorizontalOptions="FillAndExpand"
+		VerticalOptions="FillAndExpand">
+
+		<cv:CarouselView 
+			x:Name="CarouselBottles"
+			ItemsSource="{Binding Bottles}"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			RelativeLayout.WidthConstraint=
+		         "{ConstraintExpression Type=RelativeToParent,
+		                                Property=Width,
+		                                Factor=1}"
+		    RelativeLayout.HeightConstraint=
+		         "{ConstraintExpression Type=RelativeToParent,
+		                                Property=Height,
+		                                Factor=1}"
+			>
+
+			<cv:CarouselView.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>												
+						
+					  	<mr:Image Grid.RowSpan="2" Aspect="AspectFill" 
+										Source="{Binding ImagePath}"
+										Tapped="OnTapped" />
+
+						<StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
+					    	<Label TextColor="White" Text="{Binding Name}" FontSize="16" 
+								HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+					  	</StackLayout>
+					</Grid>
+				</DataTemplate>
+			</cv:CarouselView.ItemTemplate>
+		</cv:CarouselView>
+
+		<BoxView x:Name="Line" 
+			Color="Red"
+			IsVisible="true" />
+
+	</RelativeLayout>
 </ContentPage>

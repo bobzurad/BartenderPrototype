@@ -84,6 +84,12 @@
     <Reference Include="Xamarin.Forms.CarouselView">
       <HintPath>..\packages\Xamarin.Forms.CarouselView.2.3.0-pre2\lib\MonoAndroid10\Xamarin.Forms.CarouselView.dll</HintPath>
     </Reference>
+    <Reference Include="MR.Gestures.Android">
+      <HintPath>..\packages\MR.Gestures.1.4.0\lib\MonoAndroid10\MR.Gestures.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="MR.Gestures">
+      <HintPath>..\packages\MR.Gestures.1.4.0\lib\MonoAndroid10\MR.Gestures.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BartenderPrototype\BartenderPrototype.csproj">
