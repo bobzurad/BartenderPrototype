@@ -13,9 +13,20 @@ namespace BartenderPrototype
 			BindingContext = new BottlesViewModel();
 		}
 
+		void positionLine(double y)
+		{
+			Xamarin.Forms.AbsoluteLayout.SetLayoutFlags(Line, AbsoluteLayoutFlags.WidthProportional);
+			Xamarin.Forms.AbsoluteLayout.SetLayoutBounds(Line, new Rectangle(0, y, 1, 10));
+		}
+
 		void OnTapped(object sender, TapEventArgs e)
 		{
-			Line.HeightRequest = e.Center.Y;
+			positionLine(e.Center.Y);
+		}
+
+		void OnPanning(object sender, PanEventArgs e)
+		{
+			positionLine(e.Center.Y);
 		}
 	}
 }

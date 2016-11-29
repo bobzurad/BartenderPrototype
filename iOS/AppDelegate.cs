@@ -14,6 +14,8 @@ namespace BartenderPrototype.iOS
 		{
 			global::Xamarin.Forms.Forms.Init();
 
+			MR.Gestures.iOS.Settings.LicenseKey = "ALZ9-BPVU-XQ35-CEBG-5ZRR-URJQ-ED5U-TSY8-6THP-3GVU-JW8Z-RZGE-CQW6";           // key for GestureSample
+
 			LoadApplication(new App());
 
 			return base.FinishedLaunching(app, options);

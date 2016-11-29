@@ -6,23 +6,13 @@
 		xmlns:mr="clr-namespace:MR.Gestures;assembly=MR.Gestures"
 		x:Class="BartenderPrototype.MainPage">
 
-	<RelativeLayout
-		HorizontalOptions="FillAndExpand"
-		VerticalOptions="FillAndExpand">
+	<AbsoluteLayout>
 
 		<cv:CarouselView 
 			x:Name="CarouselBottles"
 			ItemsSource="{Binding Bottles}"
-			HorizontalOptions="FillAndExpand"
-			VerticalOptions="FillAndExpand"
-			RelativeLayout.WidthConstraint=
-		         "{ConstraintExpression Type=RelativeToParent,
-		                                Property=Width,
-		                                Factor=1}"
-		    RelativeLayout.HeightConstraint=
-		         "{ConstraintExpression Type=RelativeToParent,
-		                                Property=Height,
-		                                Factor=1}"
+			AbsoluteLayout.LayoutBounds="1, 1, 1, 1"
+			AbsoluteLayout.LayoutFlags="All"
 			>
 
 			<cv:CarouselView.ItemTemplate>
@@ -35,7 +25,8 @@
 						
 					  	<mr:Image Grid.RowSpan="2" Aspect="AspectFill" 
 										Source="{Binding ImagePath}"
-										Tapped="OnTapped" />
+										Tapped="OnTapped"
+										Panning="OnPanning" />
 
 						<StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
 					    	<Label TextColor="White" Text="{Binding Name}" FontSize="16" 
@@ -48,7 +39,8 @@
 
 		<BoxView x:Name="Line" 
 			Color="Red"
-			IsVisible="true" />
+			AbsoluteLayout.LayoutBounds=".5, .5, 1, 10"
+			AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional" />
 
-	</RelativeLayout>
+	</AbsoluteLayout>
 </ContentPage>
